@@ -1,0 +1,30 @@
+cflags = -Wall
+std = -std=gnu11
+args = -g
+
+rule cc
+    command = gcc $cflags $std $ARGS $in -o $out
+    description = Compiling C object $out
+
+rule clean
+    command = ninja -t clean
+    description = Cleaning.
+
+rule compdb
+    command = ninja -t compdb > compile_commands.json
+
+build task1: cc task1.c
+
+build task2: cc task2.c
+
+build task3: cc task3.c
+    ARGS = -g
+
+build task4: cc task4.c
+    ARGS = -g
+
+build compdb: compdb
+
+build all: phony task1 task2 task3 task4 compdb
+
+build cleanup: clean
