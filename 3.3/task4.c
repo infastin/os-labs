@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	int len = 100'000;
+	int len = 100000;
 	int len_bytes = len * sizeof(struct A);
 
 	struct A *ptr = mmap(NULL, len_bytes, PROT_READ, MAP_SHARED, fd, 0);
